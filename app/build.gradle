@@ -4,11 +4,11 @@ android {
     compileSdkVersion 29
     buildToolsVersion '29.0.3'
     defaultConfig {
-        applicationId "rkr.simplekeyboard.inputmethod"
+        applicationId "neo.unikey"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 69
-        versionName "3.19"
+        versionName "1.0"
     }
     buildTypes {
         release {
