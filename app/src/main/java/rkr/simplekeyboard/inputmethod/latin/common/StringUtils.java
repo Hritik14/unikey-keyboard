@@ -16,9 +16,15 @@
 
 package rkr.simplekeyboard.inputmethod.latin.common;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
+import java.util.Random;
+
+import rkr.simplekeyboard.inputmethod.latin.utils.Unikey;
 
 public final class StringUtils {
     private static final String EMPTY_STRING = "";
@@ -72,6 +78,26 @@ public final class StringUtils {
             // Optimization: avoid creating a temporary array for characters that are
             // represented by a single char value
             return String.valueOf((char) codePoint);
+        }
+        // For surrogate pair
+        return new String(Character.toChars(codePoint));
+    }
+
+    public static String newSingleUnikeyCodePointString(final int codePoint) {
+        if (Character.charCount(codePoint) == 1) {
+            Random generator = new Random();
+            List<Integer> vals = Unikey.m.get(codePoint);
+
+            if (vals == null ) // No mapping
+                return String.valueOf((char) codePoint);
+
+            int randomValue = (int) vals.get(generator.nextInt(vals.size()));
+            String randomChar = new String(Character.toChars(randomValue));
+            Log.d("Unikey",
+                    Integer.toString(randomValue) + " -> " +
+                            randomChar
+            );
+            return randomChar;
         }
         // For surrogate pair
         return new String(Character.toChars(codePoint));

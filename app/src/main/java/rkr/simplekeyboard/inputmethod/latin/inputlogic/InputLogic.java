@@ -551,7 +551,7 @@ public final class InputLogic {
             return;
         }
 
-        mConnection.commitText(StringUtils.newSingleCodePointString(codePoint), 1);
+        mConnection.commitText(StringUtils.newSingleUnikeyCodePointString(codePoint), 1);
     }
 
     /**

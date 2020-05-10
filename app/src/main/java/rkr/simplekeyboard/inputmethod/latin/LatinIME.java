@@ -73,6 +73,7 @@ import rkr.simplekeyboard.inputmethod.latin.utils.DialogUtils;
 import rkr.simplekeyboard.inputmethod.latin.utils.IntentUtils;
 import rkr.simplekeyboard.inputmethod.latin.utils.LeakGuardHandlerWrapper;
 import rkr.simplekeyboard.inputmethod.latin.utils.ResourceUtils;
+import rkr.simplekeyboard.inputmethod.latin.utils.Unikey;
 import rkr.simplekeyboard.inputmethod.latin.utils.ViewLayoutUtils;
 
 /**
@@ -337,6 +338,8 @@ public class LatinIME extends InputMethodService implements KeyboardActionListen
         KeyboardSwitcher.init(this);
         AudioAndHapticFeedbackManager.init(this);
         super.onCreate();
+
+        Unikey.init(this);
 
         mHandler.onCreate();
 

@@ -16,6 +16,8 @@
 
 package rkr.simplekeyboard.inputmethod.event;
 
+import android.util.Log;
+
 import rkr.simplekeyboard.inputmethod.latin.common.Constants;
 import rkr.simplekeyboard.inputmethod.latin.common.StringUtils;
 
@@ -110,6 +112,7 @@ public class Event {
 
     public static Event createSoftwareKeypressEvent(final int codePoint, final int keyCode,
             final int x, final int y, final boolean isKeyRepeat) {
+        Log.d("CustomLog","codePoint: " + codePoint + " keyCode: " + keyCode );
         return new Event(EVENT_TYPE_INPUT_KEYPRESS, null, codePoint, keyCode, x, y,
                 isKeyRepeat ? FLAG_REPEAT : FLAG_NONE, null);
     }
